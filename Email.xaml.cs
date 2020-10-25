@@ -15,7 +15,8 @@ using System.Windows.Shapes;
 namespace BankApp
 {
     /// <summary>
-    /// Interaction logic for Email.xaml
+    //opening screen using information from construct in this case label and changing it depending 
+    //o input window text box text
     /// </summary>
     public partial class Email : Window
     {

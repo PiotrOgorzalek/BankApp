@@ -27,6 +27,7 @@ namespace BankApp
 
             
         }
+        // when button clicked controller will check and open relevant screen
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

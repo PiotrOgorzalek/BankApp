@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankApp
 {
+    //dummy user class 
     public class User
     {
         private string name;
