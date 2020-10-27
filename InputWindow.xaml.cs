@@ -24,6 +24,7 @@ namespace BankApp
         {
             myController = cont;
             InitializeComponent();
+            
 
             
         }

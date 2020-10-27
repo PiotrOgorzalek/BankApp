@@ -21,12 +21,25 @@ namespace BankApp
     {
         Controller myController;
         string messageId;
+        string userMessage;
+        Dictionary<string, string> abbreviations;
         public SmsWindow(Controller cont,string messageId)
         {
             myController = cont;
             this.messageId = messageId;
             InitializeComponent();
             lblMsgId.Content = messageId;
+            abbreviations = myController.CreateAbbrievationDict();
+        }
+
+       
+
+        private void btnSave_Click_1(object sender, RoutedEventArgs e)
+        {
+            userMessage = txtMessage.Text;
+            txtMessage.Clear();
+            var result = string.Join(" ", userMessage.Split(' ').Select(i => abbreviations.ContainsKey(i) ?  i +"<" + abbreviations[i]+ ">" : i));
+;            txtMessage.Text = result;
         }
     }
 }

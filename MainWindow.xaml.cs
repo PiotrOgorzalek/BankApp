@@ -27,6 +27,7 @@ namespace BankApp
             
             InitializeComponent();
             myController = new Controller();
+            
             foreach (String name in (myController.ReturnUsers()))
             {
                 cmbName.Items.Add(name);
