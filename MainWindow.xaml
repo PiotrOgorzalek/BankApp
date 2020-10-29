@@ -12,6 +12,7 @@
         <Label x:Name="lblEmpNo" Content="Employee number" HorizontalAlignment="Left" Margin="49,161,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.417,-0.377"/>
         <Label x:Name="lblPass" Content="Password" HorizontalAlignment="Left" Margin="340,158,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cmbName" HorizontalAlignment="Left" Margin="178,162,0,0" VerticalAlignment="Top" Width="141" />
+        <Button Content="Button" HorizontalAlignment="Left" Margin="661,318,-166,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Window>

@@ -7,9 +7,31 @@
         mc:Ignorable="d"
         Title="InputWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="txtMessageId" HorizontalAlignment="Left" Height="23" Margin="298,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-        <Button x:Name="btnNext" Content="Next" HorizontalAlignment="Left" Margin="361,202,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Label x:Name="lblHeader" Content="Header" HorizontalAlignment="Left" Margin="216,130,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMessageId" HorizontalAlignment="Left" Height="23" Margin="161,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" AutomationProperties.IsRequiredForForm="True" LostFocus="txtMessageId_LostFocus" />
+        <Button x:Name="btnNext" Content="Save" HorizontalAlignment="Left" Margin="383,351,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label x:Name="lblMessageId" Content="Message ID" HorizontalAlignment="Left" Margin="40,23,0,0" VerticalAlignment="Top" Width="113"/>
+        <Label x:Name="lblSender" Content="Sender" HorizontalAlignment="Left" Margin="40,73,0,0" VerticalAlignment="Top"/>
+        <Label Content="Mesage" HorizontalAlignment="Left" Margin="40,194,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtSender" HorizontalAlignment="Left" Height="23" Margin="165,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"/>
+        <TextBox x:Name="txtMessage" HorizontalAlignment="Left" Height="164" Margin="161,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="562"/>
+        <GroupBox x:Name="grpEmail" Header="Email" HorizontalAlignment="Left" Height="128" Margin="403,10,0,0" VerticalAlignment="Top" Width="320" Visibility="Hidden">
+            <Grid HorizontalAlignment="Left" Height="112" Margin="0,-12,-2,-23" VerticalAlignment="Top" Width="310">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="lblSubject" Content="Subject" HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
+                <TextBox x:Name="txtSubject" HorizontalAlignment="Left" Height="23" Margin="170,14,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.RowSpan="2"/>
+                <Label x:Name="lblNatureOfInc" Content="Nature of Incident" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Visibility="Visible" Grid.Row="1"/>
+                <ComboBox x:Name="cmbNatureOfIn" HorizontalAlignment="Left" Margin="170,48,0,0" VerticalAlignment="Top" Width="120" Visibility="Visible" Grid.Row="1"/>
+                <Label x:Name="lblSortCode" Content="Sort Code" HorizontalAlignment="Left" Margin="24,17,0,0" Grid.Row="1" VerticalAlignment="Top" Width="116"/>
+                <TextBox x:Name="txtSortCode" HorizontalAlignment="Left" Height="23" Margin="170,17,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            </Grid>
+
+
+        </GroupBox>
+
+
 
     </Grid>
 </Window>
