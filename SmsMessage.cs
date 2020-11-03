@@ -7,17 +7,16 @@ using System.Threading.Tasks;
 
 namespace BankApp
 {
-    [DataContract]
+    
     class SmsMessage : IncomingMessage
     {
         [DataMember]
         protected int maxTextInput { get; set; }
-        public SmsMessage(string id,string body,string sender)
+        public SmsMessage(string id,string sender,string body)
         {
             messageId = id;
-            messageBody = body;
             this.sender = sender;
-            
+            messageBody = body;
             maxTextInput = 140;
         }
 

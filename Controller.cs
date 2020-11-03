@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -12,13 +15,19 @@ using System.Windows;
 
 // class that behave like data base and cotroller
 namespace BankApp
-{
+{   
+    [DataContract]
     public class Controller
     {
+        [DataMember]
         //will hold csv file for text abbrievations
         private static List<string> abbrievations;
+        [DataMember]
         //dummy user
-        public List<User> usersList = new List<User> { new User("1111", "2222"), new User("3333", "4444") };
+        private List<User> usersList = new List<User> { new User("1111", "2222"), new User("3333", "4444") };
+        [DataMember]
+        private List<SmsMessage> userSms = new List<SmsMessage>();
+        
 
         //check for user password if correct let MainWindow window to open INput screen
         public bool ValidateInput(string name, string password)
@@ -69,7 +78,7 @@ namespace BankApp
                     {
                         case 'S':
                             // DELETE MESSAGGES
-                            MessageBox.Show("s entered");
+                            MessageBox.Show("The header correspond with SMS message - 140 character maximum");
                             window.lblSender.Content = "Telephone number";
                             window.txtMessage.MaxLength = 140;
                             break;
@@ -80,6 +89,8 @@ namespace BankApp
                         case 'E':
                             MessageBox.Show("email entered");
                             window.grpEmail.Visibility = Visibility.Visible;
+                            window.txtMessage.MaxLength = 1028;
+
                             break;
                         default:
                             MessageBox.Show("First letter not recognized" + "\n" + "S for SMS" + "\n" + "T for Twitter" + "\n" + "E for Email");
@@ -106,6 +117,19 @@ namespace BankApp
             }
             return dict;
         }
-    }
+        public void SaveDataAsJson(Object one,string name) 
+        {
+
+            //File.WriteAllText("messages.json", JsonConvert.SerializeObject(one));
+            // serialize JSON directly to a file
+            using (StreamWriter file = File.CreateText(name))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, one);
+            }
+
+        }
+        
+    }   
     
 }
